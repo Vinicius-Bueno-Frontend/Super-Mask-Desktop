@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Green</title>
+
+    <!-- Link google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Heebo|PT+Sans+Narrow|Pacifico|Roboto+Slab|Ubuntu|Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Link do css [vscode] -->
+    <link rel="stylesheet" href="css/vegano.css" />
+
+    <!-- Link css bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ############## Início da barra de navegação ############# -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html"
+        ><img src="img/logo.png" alt="logoRestaurante"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="cardapio.html"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Cardápio
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="pratosprincipais.html"
+                >Pratos Principais</a
+              >
+              <a class="dropdown-item" href="bebidas.html">Bebidas</a>
+              <a class="dropdown-item" href="sobremesas.html">Sobremesas</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="dicas.html"
+                  >Dicas <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="contato.html"
+                  >Contato <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="localizacao.html"
+                  >Localização <span class="sr-only">(current)</span></a
+                >
+              </li>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ################# Fim da barra de navegação ################# -->
+
+    <header>
+      
+    </header>
+
+    <main>
+      <div class="conteiner-fluid"></div>
+      <h2>Sua opinião é importante para nós</h2>
+
+      <!-- ############### Início do formulário de contato ############## -->
+
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="Nome Completo">Nome Completo</label>
+            <input type="text" class="form-control" id="Nome" placeholder="Nome Completo">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" id="Email" placeholder="example@dominio.com" required>
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="Telefone">Telefone/Celular</label>
+          <input type="tel" class="form-control" id="TelefoneCelular" placeholder="(xx) xxxxx-xxxx" required>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="Filial">Filial</label>
+          <select id="Filial" class="form-control">
+            <option selected>Selecione</option>
+            <option>Jardim Europa</option>
+            <option>Liberdade</option>
+            <option>Paraíso</option>
+            <option>Paulista</option>
+          </select>
+        </div>
+          <div class="form-group col-md-2">
+            <label for="Assunto">Assunto</label>
+            <select id="Assunto" class="form-control">
+              <option selected>Selecione</option>
+              <option>Sugestão</option>
+              <option>Reclamação</option>
+              <option>Elogio</option> 
+              <option>Outro</option>
+            </select>
+          </div>
+          <textarea name="Feedback" id="Feedback" cols="30" rows="10" placeholder="Digite aqui sua mensagem"></textarea>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Enviar</button>
+      </form>
+
+      <!-- ############### Fim do formulário de contato ############# -->
+    </main>
+
+    <footer>
+      <div id="contato">
+        Rua Vergueiro, 3185 - Liberdade - São Paulo - SP
+        <br />
+        <div id="imgEmail">
+          <a href="mailto:contato@greenmint.com.br"> <img src="img/logoEmail.png" alt=""> contato@greenmint.com.br</a></div>
+        <div id="imgTel">
+          <img src="img/whatsapp.png" alt=""> (11) 97788 - 2000 | <img src="img/telefone.png" alt=""> 2519 - 4062
+        </div>
+      </div>
+
+      <div id="redes">
+        <ul>
+          <li>
+            <a href="http://www.facebook.com" target="_blank">
+              <img src="img/facebooklogo.png" alt="rede facebook"
+            /></a>
+          </li>
+          <li>
+            <a href="http://twitter.com/" target="_blank">
+              <img src="img/twitterlogo.png" alt="rede twitter"
+            /></a>
+          </li>
+          <li>
+            <a href="http://www.instagram.com" target="_blank">
+              <img src="img/instagramlogo.png" alt="rede instagram"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- ############## Scripts de origem boostrap ############# -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
