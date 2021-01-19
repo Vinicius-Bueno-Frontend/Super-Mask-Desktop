@@ -7,8 +7,12 @@ package br.com.supermask.telas;
 
 import java.sql.*;
 import br.com.supermask.dal.ModuloConexao;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -47,7 +51,7 @@ public class telaOS extends javax.swing.JInternalFrame {
 
     private String tipo;
 
-    // Método para cadastrar uma OC
+    // Método para Cadastrar OC
     private void emitirOC() {
         String sql = "insert into os (tipo,produto,situacao,descricao,vendedor,valor,idcliente) values(?,?,?,?,?,?,?)";
         try {
@@ -189,6 +193,26 @@ public class telaOS extends javax.swing.JInternalFrame {
         } else {
         }
     }
+    
+    // Método de Impressão de OC.
+    private void imprimirOC() {
+        // Imprimindo uma OC.
+        int confirma = JOptionPane.showConfirmDialog(null, "Confirma a impressão dessa Ordem?", "ATENÇÃO!", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION) {
+            // Emitindo o relatório com o framework JasperReport.
+            try {
+                // Usando a classe HashMap para criar um filtro.
+                HashMap filtro = new HashMap();
+                filtro.put("idos",Integer.parseInt(txtOC.getText()));
+                // Usando a classe JasperPrint para preparar a impressão de um relatório.
+                JasperPrint print = JasperFillManager.fillReport("C:/REPORTS/oc.jasper", filtro, conexao);
+                // A linha abaixo exibe o relatório através da classe JasperViewer.
+                JasperViewer.viewReport(print, false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -200,6 +224,7 @@ public class telaOS extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -229,6 +254,9 @@ public class telaOS extends javax.swing.JInternalFrame {
         btnPesquisar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setClosable(true);
         setIconifiable(true);
@@ -519,6 +547,14 @@ public class telaOS extends javax.swing.JInternalFrame {
             }
         });
 
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setToolTipText("Imprimir OC");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -533,7 +569,9 @@ public class telaOS extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnAtualizar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnExcluir))
+                        .addComponent(btnExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnImprimir))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,7 +587,7 @@ public class telaOS extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -558,11 +596,10 @@ public class telaOS extends javax.swing.JInternalFrame {
                     .addComponent(btnAdicionar)
                     .addComponent(btnPesquisar)
                     .addComponent(btnAtualizar)
-                    .addComponent(btnExcluir))
+                    .addComponent(btnExcluir)
+                    .addComponent(btnImprimir))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
-
-        jPanel1.getAccessibleContext().setAccessibleName("Ordem de Compra");
 
         setBounds(0, 0, 558, 485);
     }// </editor-fold>//GEN-END:initComponents
@@ -629,14 +666,21 @@ public class telaOS extends javax.swing.JInternalFrame {
         excluirOC();
     }//GEN-LAST:event_btnExcluirActionPerformed
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // Chamando o método "imprimirOC"
+        imprimirOC();
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboOcSit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
